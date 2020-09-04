@@ -15,6 +15,7 @@ module.exports = webpackMerge(baseWebpackConfig,{
             template: 'index.html',//html模板
             inject: true, // true：默认值，script标签位于html文件的 body 底部
             hash: true, // 在打包的资源插入html会加上hash
+            favicon: utils.resolve('../favicon.ico'),
             //  html 文件进行压缩
             minify: {
                 removeComments: true,               //去注释
