@@ -23,17 +23,10 @@ module.exports = {
                 loader: 'babel-loader',//loader的名称（必须）
             },
             {
-                test: /\.css$/,
-                use:ExtractTextWebpackPlugin.extract({
-                    // 将css用link的方式引入就不再需要style-loader了
-                    use: ['css-loader']
-                })
-            },
-            {
-                test: /\.less$/,
+                test: /\.(less|css)$/,
                 use: ExtractTextWebpackPlugin.extract({
                     // 将css用link的方式引入就不再需要style-loader了
-                    use: ['css-loader', 'less-loader']
+                    use: ['css-loader','less-loader','postcss-loader']
                 })
             },
             {
