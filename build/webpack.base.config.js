@@ -1,4 +1,5 @@
 // webpack公共配置
+const ExtractTextWebpackPlugin  = require('extract-text-webpack-plugin');
 const path = require('path');
 const utils = require("./utils")
 
@@ -23,28 +24,17 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use:[
-                    {
-                        loader: 'style-loader', // 创建 <style></style>
-                    },
-                    { 
-                        loader: 'css-loader',  // 转换css
-                    }
-                ]
+                use:ExtractTextWebpackPlugin.extract({
+                    // 将css用link的方式引入就不再需要style-loader了
+                    use: ['css-loader']
+                })
             },
             {
                 test: /\.less$/,
-                use: [
-                    {
-                    loader: 'style-loader', 
-                    },
-                    {
-                    loader: 'css-loader',
-                    },
-                    {
-                    loader: 'less-loader', // 编译 Less -> CSS
-                    },
-                ],
+                use: ExtractTextWebpackPlugin.extract({
+                    // 将css用link的方式引入就不再需要style-loader了
+                    use: ['css-loader', 'less-loader']
+                })
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -64,6 +54,9 @@ module.exports = {
             }
         ],
     },
+    plugins:[
+        new ExtractTextWebpackPlugin('css/style.css'), // 将css用link的方式引入html
+    ],
     resolve: {
         extensions: ['.js', '.json'], // 解析扩展。（当我们通过路导入文件，找不到改文件时，会尝试加入这些后缀继续寻找文件）
         alias: {
