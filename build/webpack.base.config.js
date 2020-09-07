@@ -1,5 +1,5 @@
 // webpack公共配置
-const ExtractTextWebpackPlugin  = require('extract-text-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const utils = require("./utils")
 
