@@ -9,6 +9,7 @@ function example(props){
         <>
             <div>你点击了{count}次</div>
             <button onClick={()=>{setCount(count+1)}}>点击</button>
+            <button onClick={()=>{setCount(0)}}>清零</button>
         </>
     )
 }
