@@ -10,7 +10,8 @@
   },
   "keywords": [
     "react",
-    "webpack"
+    "webpack",
+    "typescript"
   ],
   "author": "kjh",
   "license": "ISC",

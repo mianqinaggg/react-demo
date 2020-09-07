@@ -10,7 +10,7 @@
         "allowSyntheticDefaultImports": true,
     },
     "include": [
-        "src/*.tsx","src/*.ts"
+        "src/*.tsx","src/*.ts","src/@type/*.ts"
     ],
     "exclude": [
         "node_modules",
