@@ -2,6 +2,7 @@ import React from 'react';
 import img1 from '../assets/img/1.jpg';
 import img2 from '../assets/img/2.jpeg';
 import './index.less';
+import {Button} from 'antd'
 
 interface Props {}
 interface States {
@@ -23,6 +24,7 @@ class Home extends React.Component<Props,States> {
     render(){
         return(
             <>
+                <Button type="primary">111</Button>
                 {this.state.a}
                 <p className="test">嘻嘻嘻</p>
             </>
