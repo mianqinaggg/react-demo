@@ -1,14 +1,19 @@
-import React from 'react'
+
 import ReactDom from 'react-dom'
-import HomePage from "./home/index"
-import Example from './example/example'
+import React, { Suspense } from 'react';
+import { HashRouter as Router, Switch } from 'react-router-dom';
+import router from './router/index';
+
 class App extends React.Component {
     render(){
         return (
-            <div>
-                <HomePage />
-                <Example />
-            </div>
+        <Router>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Switch>
+                {router}
+              </Switch>
+            </Suspense>
+          </Router>
         )
     }
 }

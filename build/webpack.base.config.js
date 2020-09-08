@@ -60,6 +60,7 @@ module.exports = {
         alias: {
             '@': path.join(__dirname, '..', "src") // 在项目中使用@符号代替src路径，导入文件路径更方便
         }
-    }
+    },
+    devtool: 'inline-source-map', 
 
 }
