@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './example.less'
 
-function example(props){
+function example(){
 
     const [count,setCount] = useState(0);
 

@@ -7,11 +7,13 @@ const Example = lazy(()=>import('../example/example'));
 const router = [
     {
         path: '/',
-        component: Home  // 首页
+        component: Home,  // 首页
+        title:'首页',
     },
     {
         path: '/example',
-        component: Example // 示例页面
+        component: Example, // 示例页面
+        title:'示例页面'
     }
 ]
 
