@@ -1,5 +1,6 @@
 // webpack公共配置
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const tsImportPluginFactory = require('ts-import-plugin')
 const path = require('path');
 const utils = require("./utils")
 
@@ -25,13 +26,46 @@ module.exports = {
             {
                 test: /\.(ts|tsx)$/,//一个匹配loaders所处理的文件的拓展名的正则表达式，这里用来匹配js和jsx文件（必须）
                 exclude: /node_modules/,//屏蔽不需要处理的文件（文件夹）（可选）
-                use: ['babel-loader','ts-loader']
+                use: ['babel-loader',
+                {
+                    loader: 'ts-loader',
+                    options: {
+                      transpileOnly: true,
+                      getCustomTransformers: () => ({
+                        before: [tsImportPluginFactory([
+                          {
+                            libraryName: 'antd',
+                            libraryDirectory: 'lib',
+                            style: true
+                          }
+                        ])]
+                      }),
+                      compilerOptions: {
+                        module: 'es2015'
+                      }
+                    }
+                  }]
             },
             {
-                test: /\.(less|css)$/,
+                test: /\.(css)$/,
                 use: ExtractTextWebpackPlugin.extract({
                     // 将css用link的方式引入就不再需要style-loader了
-                    use: ['css-loader','less-loader','postcss-loader']
+                    use: ['css-loader',]
+                })
+            },
+            {
+                test: /\.(less)$/,
+                use: ExtractTextWebpackPlugin.extract({
+                    // 将css用link的方式引入就不再需要style-loader了
+                    use: [
+                        {
+                          loader: 'css-loader',
+                          options: { sourceMap: true }
+                        }, {
+                          loader: 'less-loader',
+                          options:  { javascriptEnabled: true, sourceMap: true }
+                        }
+                    ]
                 })
             },
             {
@@ -53,7 +87,10 @@ module.exports = {
         ],
     },
     plugins:[
-        new ExtractTextWebpackPlugin('css/style.css'), // 将css用link的方式引入html
+        new ExtractTextWebpackPlugin({
+            filename: '[name].[hash].css',
+            allChunks: true
+        }), // 将css用link的方式引入html
     ],
     resolve: {
         extensions: ['.js','.jsx','.ts','.tsx'], // 解析扩展。（当我们通过路导入文件，找不到改文件时，会尝试加入这些后缀继续寻找文件）
