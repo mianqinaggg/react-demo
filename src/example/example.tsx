@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import './example.less'
 
-function example(){
+interface initProps  {
+    name:string
+}
+
+
+const example:React.FC<initProps> = (props)=> {
 
     const [count,setCount] = useState(0);
 

@@ -47,13 +47,6 @@ module.exports = {
                   }]
             },
             {
-                test: /\.(css)$/,
-                use: ExtractTextWebpackPlugin.extract({
-                    // 将css用link的方式引入就不再需要style-loader了
-                    use: ['css-loader',]
-                })
-            },
-            {
                 test: /\.(less)$/,
                 use: ExtractTextWebpackPlugin.extract({
                     // 将css用link的方式引入就不再需要style-loader了
