@@ -24,11 +24,15 @@ module.exports = webpackMerge(baseWebpackConfig,{
         hot: true,
         contentBase: false, // 告诉服务器从哪里提供内容。只有在你想要提供静态文件时才需要
         compress: true, // 一切服务都启用gzip 压缩：
-        port: "8081", // 指定段靠谱
+        port: 8081, // 指定段靠谱
         publicPath: "/", // 访问资源加前缀
         proxy: {
-            // 接口请求代理
-        },
-
+            '/test/**': {
+                target: 'https://api.qq.jsososo.com/',
+                pathRewrite: {'^/test': ''},
+                secure: false, // 接受 运行在 https 上的服务
+                changeOrigin: true
+            }
+        }
     }
 });

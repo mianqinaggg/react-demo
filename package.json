@@ -61,7 +61,10 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "ahooks": "^2.6.1",
     "antd": "^4.6.3",
+    "axios": "^0.20.0",
+    "qs": "^6.9.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1"
