@@ -13,7 +13,7 @@ module.exports = {
     output: {
         path : utils.resolve("../dist"),
         filename: "js/[name].[hash].js",
-        publicPath: "/" // 打包后的资源的访问路径前缀
+        publicPath: "./" // 打包后的资源的访问路径前缀
     },
     // 模块
     module:{
@@ -49,7 +49,7 @@ module.exports = {
             {
                 test: /\.(less)$/,
                 use: ExtractTextWebpackPlugin.extract({
-                    // 将css用link的方式引入就不再需要style-loader了
+                    // 将css用link的方式引入就不再需要style-loader了X
                     use: [
                         {
                           loader: 'css-loader',
@@ -66,7 +66,7 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000, // url-loader 包含file-loader，这里不用file-loader, 小于10000B的图片base64的方式引入，大于10000B的图片以路径的方式导入
-                    name: 'static/img/[name].[hash:7].[ext]'
+                    name: './static/img/[name].[hash:7].[ext]'
                 }
             },
             {
@@ -74,7 +74,7 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000, // 小于10000B的图片base64的方式引入，大于10000B的图片以路径的方式导入
-                    name: 'static/fonts/[name].[hash:7].[ext]'
+                    name: './static/fonts/[name].[hash:7].[ext]'
                 }
             }
         ],
@@ -83,7 +83,6 @@ module.exports = {
         new ExtractTextWebpackPlugin({
             filename: '[name].[hash].css',
             allChunks: true,
-            publicPath: "../../"
         }), // 将css用link的方式引入html
     ],
     resolve: {
