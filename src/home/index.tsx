@@ -25,11 +25,13 @@ class Home extends React.Component<Props,States> {
     render(){
         return(
             <>
-                <Layout className="layout">
-                    <Header className="header">RX-0 UNICORN GUNDAM</Header>
-                    <Content></Content>
-                    {/* <Footer></Footer> */}
-                </Layout>
+                <div  className="homePage">
+                    <Layout className="homepage-layout">
+                        <Header className="homepage-header">RX-0 UNICORN GUNDAM</Header>
+                        <Content></Content>
+                        {/* <Footer></Footer> */}
+                    </Layout>
+                </div>
             </>
         )
     }
