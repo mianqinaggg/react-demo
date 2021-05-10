@@ -82,7 +82,8 @@ module.exports = {
     plugins:[
         new ExtractTextWebpackPlugin({
             filename: '[name].[hash].css',
-            allChunks: true
+            allChunks: true,
+            publicPath: "../../"
         }), // 将css用link的方式引入html
     ],
     resolve: {
