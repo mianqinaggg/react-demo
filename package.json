@@ -64,10 +64,16 @@
     "ahooks": "^2.6.1",
     "antd": "^4.6.3",
     "axios": "^0.20.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "prop-types": "^15.7.2",
     "qs": "^6.9.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-router-dom": "^5.0.1"
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3",
+    "redux-thunk": "^2.3.0"
   },
   "browserslist": [
     "defaults",

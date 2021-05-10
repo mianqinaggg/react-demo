@@ -5,12 +5,12 @@ import router from './router';
 function getRouter(data){
     return data.map((item)=> {
         return <Route 
-            key={item.path} 
-            exact 
-            path={item.path}  
+            key={item.path}
+            exact
+            path={item.path}
             render={(p) =>{
                 document.title = item.title || 'reactDemo'
-                return <item.component {...p} />} } />
+            return <item.component {...p} />} } />
     })
 
 }

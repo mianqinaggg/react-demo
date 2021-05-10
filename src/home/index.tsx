@@ -2,7 +2,7 @@ import React from 'react';
 import img1 from '../assets/img/1.jpg';
 import img2 from '../assets/img/2.jpeg';
 import './index.less';
-import {Button} from 'antd'
+import {Button} from 'antd';
 
 interface Props {}
 interface States {
