@@ -2,7 +2,8 @@ import React from 'react';
 import img1 from '../assets/img/1.jpg';
 import img2 from '../assets/img/2.jpeg';
 import './index.less';
-import {Button} from 'antd';
+import { Layout } from 'antd';
+const { Header, Footer, Sider, Content } = Layout;
 
 interface Props {}
 interface States {
@@ -24,9 +25,11 @@ class Home extends React.Component<Props,States> {
     render(){
         return(
             <>
-                <Button type="primary">111</Button>
-                {this.state.a}
-                <p className="test">嘻嘻嘻</p>
+                <Layout className="layout">
+                    <Header className="header">RX-0 UNICORN GUNDAM</Header>
+                    <Content></Content>
+                    {/* <Footer></Footer> */}
+                </Layout>
             </>
         )
     }
